@@ -5,15 +5,20 @@
 
 ## Current Project Ideas
 * AI Math tutor
+
 * Book Scanner
     - Catalogue Books
+
 * Card Scanner
     - Scan chiikawa card
-* Finance 
-    - Stock market tracker, get current news
+
+* Stock market tracker
+    - Get current news
+
 * Email assistant
 
 * MP3 Player
+
 * Note taker
     - listens to onscreen video
 * Calulator
