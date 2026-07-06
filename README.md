@@ -6,6 +6,8 @@
 ## Current Project Ideas
 * Login to lonestar college automatically
 
+* Activity tracker
+
 * AI Math tutor
 
 * Book Scanner
@@ -23,6 +25,7 @@
 
 * Note taker
     - listens to onscreen video
+    
 * Calulator
 
 * Random project picker
