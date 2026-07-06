@@ -8,3 +8,9 @@
     
 ## Links
 [Weather API Tutorial](https://www.youtube.com/watch?v=Sz0_2fp27Q0)
+
+[Reference](https://github.com/AlexZXu/smoke-aware-congress-app)
+
+
+## Ideas
+* Ai chatbot integration
