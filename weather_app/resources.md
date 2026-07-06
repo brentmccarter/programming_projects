@@ -1,7 +1,7 @@
 # Resources
 ## Goal for weather app
 * Get weather data
-   -Open weather API
+   - Open weather API
 * Parse through data for relevant information
 * Output data on a clean gui,
   - Flask and vercel
