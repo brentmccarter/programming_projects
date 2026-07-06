@@ -6,4 +6,18 @@
 ## Current Project Ideas
 * AI Math tutor
 * Book Scanner
-    - Catalogue Books, Scan book with open cv then look it up?
+    - Catalogue Books
+* Card Scanner
+    - Scan chiikawa card
+* Finance 
+    - Stock market tracker, get current news
+* Email assistant
+
+* MP3 Player
+* Note taker
+    - listens to onscreen video
+* Calulator
+
+Lower the bar for what you want to program sometimes !!!
+
+[Reference](https://www.reddit.com/r/learnprogramming/comments/14tkw2s/is_their_anyone_else_who_cant_find_that_one/)
