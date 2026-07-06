@@ -4,6 +4,8 @@
 * Three working apps or scripts
 
 ## Current Project Ideas
+* Login to lonestar college automatically
+
 * AI Math tutor
 
 * Book Scanner
