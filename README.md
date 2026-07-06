@@ -18,6 +18,8 @@
     - listens to onscreen video
 * Calulator
 
+* Random project picker
+
 Lower the bar for what you want to program sometimes !!!
 
 [Reference](https://www.reddit.com/r/learnprogramming/comments/14tkw2s/is_their_anyone_else_who_cant_find_that_one/)
