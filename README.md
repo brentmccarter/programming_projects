@@ -22,7 +22,7 @@
 * Email assistant
 
 * MP3 Player
-
+* Computer vision that plays music whenever on screen
 * Note taker
     - listens to onscreen video
     
