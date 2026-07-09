@@ -16,8 +16,8 @@ class Snake():
         self.direction = direction
 
 
-    def move(self,direction):
-
+    def move(self,direction, grow = False):
+        
         match direction:
             case "right":
                 new_coords = [self.coordinates[0][0]+self.body_size,self.coordinates[0][1]]
@@ -38,16 +38,16 @@ class Snake():
         x = new_coords[0]
         y = new_coords[1]
 
-        # might have to modify
-        self.canvas.delete(self.squares[0])
 
-        self.squares.pop(0)
-        self.coordinates.pop(-1)   
+        # might have to modify
+        if  not grow:
+            self.canvas.delete(self.squares[0])
+            self.squares.pop(0)
+            self.coordinates.pop(-1)   
+
         square = self.canvas.create_rectangle(x,y,x+self.body_size,y+self.body_size,fill = self.snake_color, tag = "snake")
         self.squares.append(square)
   
-    def grow(self):
-        pass
 
 class Fruit():
     def __init__(self,canvas,board : list,fruit_size, invalid = None,fruit_color = "red",):
@@ -70,17 +70,27 @@ class Fruit():
         self.invalid = set(tuple(x) for x in invalid)
         self.coordinates = [random.randint(0,self.xmax)*self.fruit_size,random.randint(0,self.ymax)*self.fruit_size]
         self.invalid_fruit = True if set(self.coordinates) in self.invalid else True
+        i = 0
         while self.invalid_fruit:
-            if (self.coordinates[0],self.coordinates[1]) in invalid:
-                self.coordinates = [random.randint(0,self.xmax)*self.fruit_size,random.randint(0,self.ymax)*self.fruit_size]
-            else: self.invalid_fruit = False
 
+
+            if (self.coordinates[0],self.coordinates[1]) in self.invalid:
+                self.coordinates = [random.randint(0,self.xmax)*self.fruit_size,random.randint(0,self.ymax)*self.fruit_size]
+            else: 
+                self.invalid_fruit = False
+                break
+            i +=1
+            if i == 20:
+                return("invalid")
+            
+        
+        # print(self.invalid)
         self.canvas.delete(self.squares[0])
         self.squares = [self.canvas.create_rectangle(self.coordinates[0],self.coordinates[1],self.coordinates[0]+self.fruit_size,self.coordinates[1]+self.fruit_size,fill = self.fruit_color, tag = "fruit")]
-            
+        return None
 
 class Game():
-    def __init__(self, GAME_HEIGHT = 500, GAME_WIDTH  = 500,TICK_SPEED = 100, SPACE_SIZE = 50, BODY_PARTS = 3, ):
+    def __init__(self, GAME_HEIGHT = 700, GAME_WIDTH  = 700,TICK_SPEED = 300, SPACE_SIZE = 50, BODY_PARTS = 3, ):
         self.window = Tk()
         self.window.title("Snek Game")
         self.window.attributes(topmost=True)
@@ -105,20 +115,25 @@ class Game():
 
 
     def next_tick(self):
-        self.snake.move(self.direction)
         a = self.check_collisions()
         if a == "fruit":
             self.score+=1
             self.label.config(text=f"Score: {self.score}")
-    
-            self.fruit.new_fruit(self.snake.coordinates)
+            self.snake.move(self.direction,True)
+            
+            f = self.fruit.new_fruit(self.snake.coordinates)
+            if f:
+                print("YOU WIN")
+
         elif a =="out of bounds":
             self.label.config(text="out of bounds")
             self.snake.coordinates[0] = [0,0]
 
-
+        else:
+            self.snake.move(self.direction)
+        # print(a)
         self.window.after(self.tick_speed,self.next_tick)
-        print(self.snake.coordinates)
+        # print(self.snake.coordinates)
         # print(self.fruit.coordinates)
 
     def change_direction(self,event):
